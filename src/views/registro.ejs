@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://kit.fontawesome.com/a81368914c.js"></script>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" type="text/css" href="assets/css/login_register.css">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
+    <link rel="icon" href="assets/img/logo_lobo.png">
+    <title>Nuevo usuario</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg bg-blueObsc">
+        <%- include(ruta); %>
+    </nav>
+    <header class="text-center pb-1" style="background-color:rgb(20, 43, 76);color: white;">
+        <h3 class="title">Registrar</h3>
+    </header>
+    <!-- </div> -->
+    <main>
+        <div class="container-sm">
+            <div class="row row-cols-1 justify-content-center d-flex">
+                <div class="col-md-6 mb-1">
+                    <div class="card mt-3 shadow">
+                        <div class="card-header text-white h3 text-center" style="background-color: rgba(64, 171, 53);">
+                            Nuevo usuario
+                        </div>
+                        <div class="card-body">
+                            <div class="card-capturar">
+                                <!-- FORMULARIO CAPTURAR ------------------------------------------------------------>
+                                <form style="width: 100%;" action="" method="POST" id="formularioNuevoUsuario">
+
+                                    <!-- USUARIO -->
+                                    <div class="form-group">
+                                        <label for="titulo" style="font-size: 15px;">Nombre del usuario</label>
+                                        <div class="input-group">
+                                            <div class="input-group-text"><i class="fas fa-user"></i></div>
+                                            <input type="text" class="form-control" id="username" name="username" placeholder="Ejemplo" required>
+                                        </div>
+                                        <p id="alertUser" class="form-input-error">El usuario tiene que ser de 4 a 25 dígitos y solo puede contener letras y acentos.</p>
+                                    </div>
+
+                                    <!-- CORREO -->
+                                    <div class="form-group">
+                                        <label for="titulo" style="font-size: 15px;">Correo electrónico</label>
+                                        <div class="input-group">
+                                            <div class="input-group-text"><i class="fas fa-at"></i></div>
+                                            <input type="email" class="form-control" id="email" name="email" placeholder="ejemplo@correo.com" required>
+                                        </div>
+                                        <p id="alertEmail" class="form-input-error">El correo solo puede contener letras, numeros, puntos, guiones y guion bajo.</p>
+                                    </div>
+
+                                    <!-- DEPARTAMENTO -->
+                                    <div class="form-group">
+                                        <label for="titulo" style="font-size: 15px;">Departamento</label>
+                                        <div class="input-group">
+                                            <div class="input-group-text"><i class="fas fa-address-card"></i></div>
+                                            <input type="text" class="form-control" id="departamento" name="departamento" placeholder="Oficinas - Cubículo 1" required>
+                                        </div>
+                                        <p id="alertDepa" class="form-input-error">El departamento tiene que ser de 4 a 35 dígitos y solo puede contener letras, numeros, guiones y guion bajo.</p>
+                                    </div>
+
+                                    <!-- PASSWORD -->
+                                    <div class="form-group">
+                                        <label for="titulo" style="font-size: 15px;">Contraseña</label>
+                                        <div class="input-group">
+                                            <div class="input-group-text"><i class="fas fa-lock"></i></div>
+                                            <input type="password" class="form-control" id="password" name="password">
+                                        </div>
+                                        <p id="alertPass" class="form-input-error">La contraseña tiene que ser de 4 a 12 dígitos.</p>
+                                    </div>
+
+                                    <!-- REPERTIR PASSWORD -->
+                                    <div class="form-group">
+                                        <label for="titulo" style="font-size: 15px;">Confirme la contraseña</label>
+                                        <div class="input-group">
+                                            <div class="input-group-text"><i class="fas fa-lock"></i></div>
+                                            <input type="password" class="form-control" id="passwordRep" name="passwordRep" required>
+                                        </div>
+                                        <p id="alertPassRep" class="form-input-error">Ambas contraseñas deben coincidir.</p>
+                                    </div>
+
+                                    <div class="d-grid gap-2">
+                                        <input type="submit" class="btn btn-outline-primary btn-lg" value="Registrar usuario" id="btn-publicar">
+                                        <a style="text-align: right;" href="/accountsPage">Volver</a>
+                                    </div>
+                                </form>
+                                <!-- FORMULARIO CAPTURAR ------------------------------------------------------------>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        function listener() {
+            Swal.fire({
+                position: 'top-end',
+                icon: 'warning',
+                title: 'Luego del registro, recuerde al usuario revisar su correo para activar su cuenta',
+                html: 'Los espacios en blanco no se guardaran.',
+                showConfirmButton: false,
+                timerProgressBar: true,
+                timer: 4000,
+                allowEscapeKey: true
+            })
+        }
+        document.addEventListener("DOMContentLoaded", listener, false);
+    </script>
+    <script src="assets/js/validate_inputs/expresiones.js"></script>
+    <script type="text/javascript" src="assets/js/validate_inputs/inputs_registrarUser.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+</body>
+
+</html>

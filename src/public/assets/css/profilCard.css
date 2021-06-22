@@ -1,0 +1,11 @@
+@import url(profilCard_util.css);
+@import url(fondoBiColor.css);
+html {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    height: 100%;
+    font-family: 'Poppins', sans-serif;
+}

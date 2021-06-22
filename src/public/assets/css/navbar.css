@@ -1,0 +1,44 @@
+/* Barra de navegación  */
+
+.bg-blueObsc {
+    background-color: rgb(20, 43, 76);
+}
+
+li[class="nav-item"] a {
+    color: white;
+}
+
+li[class="nav-item"] {
+    border-radius: 0.5rem;
+}
+
+li[class="nav-item"]:hover {
+    background: white;
+}
+
+i[class="fas fa-bars"] {
+    color: white;
+    font-size: 25px;
+}
+
+#exit {
+    color: white;
+    box-shadow: inset 0 0 0 0;
+    transition: ease-in-out all 0.2s;
+    border-radius: 0.5rem;
+}
+
+#exit:hover {
+    background-color: #dc3545;
+}
+
+@media screen and (min-width: 1000px) {
+    li[class="nav-item"] {
+        box-shadow: inset 0 0 0 0;
+        transition: ease-in-out all 0.2s;
+        border-radius: 0.5rem;
+    }
+    li[class="nav-item"]:hover {
+        box-shadow: inset 0 300px 0 300px white;
+    }
+}

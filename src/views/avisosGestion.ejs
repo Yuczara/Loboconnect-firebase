@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://kit.fontawesome.com/a81368914c.js"></script>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" type="text/css" href="assets/css/login_register.css">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
+
+    <link rel="icon" href="assets/img/logo_lobo.png">
+    <title>Gestión de avisos</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg bg-blueObsc">
+        <%- include(ruta); %>
+    </nav>
+    <header class="text-center pb-1" style="background-color:rgb(20, 43, 76);color: white;">
+        <h3 class="title">Gestión de avisos</h3>
+    </header>
+    <!-- </div> -->
+    <main>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-5 col-md-5 mb-1">
+                    <div class="card mt-3 shadow">
+                        <div class="card-header text-white h3 text-center" style="background-color: rgba(64, 171, 53);">
+                            Capturar aviso
+                        </div>
+                        <div class="card-body">
+                            <div class="card-capturar">
+                                <!-- FORMULARIO CAPTURAR ------------------------------------------------------------>
+                                <form style="width: 100%;" action="" method="POST" id="aviso-capturar">
+                                    <div class="form-group">
+                                        <label for="titulo" style="font-size: 15px;">Titulo</label>
+                                        <input type="hidden" class="form-control" id="id_aviso" name="id_aviso">
+                                        <input type="text" class="form-control" id="titulo" name="titulo" required>
+                                        <p class="small m-1 form-input-error" id="alertTitulo">El titulo debe ser de 4 a 20 dígitos y solo puede contener letras, numeros, y guiones.</p>
+                                        <p class="small m-1" id="contadorR1"></p>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="Descripción" style="font-size: 15px;">Descripción</label>
+                                        <textarea style="resize: none;" class="form-control" name="descripcion" id="descripcion" cols="30" rows="12" form="aviso-capturar"></textarea>
+                                        <p class="small m-1 form-input-error" id="alertDescripcion">La descripción debe ser de 4 a 500 dígitos y solo puede contener letras, puntos, numeros, slash, y guiones.</p>
+                                        <p class="small m-1" id="contadorR2"></p>
+                                    </div>
+                                    <div class="d-grid gap-2">
+                                        <input type="submit" class="btn btn-outline-primary btn-lg publishAviso" id="btn-publicar">
+                                    </div>
+                                    <div style="text-align: right" id="noEdit"></div>
+                                </form>
+                                <!-- FORMULARIO CAPTURAR ------------------------------------------------------------>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PANEL DE AVISOS ------------------------------------------------------------>
+                <div class="col-lg-7 col-md-7">
+                    <div class="card mt-3 shadow">
+                        <div class="card-header text-white h3 d-flex bd-highlight" style="background-color: rgba(64, 171, 53);">
+                            <p class="bd-highlight"> Avisos publicados</p> <i id="btnRefreshAvisosPub" class="ms-auto bd-highlight  iconRefresh fas fa-sync-alt" title="Refrescar"></i>
+                        </div>
+                        <div class="card-body">
+                            <table class="table table-hover" style="max-width: 100%;">
+                                <thead class="table-dark">
+                                    <tr>
+                                        <th scope="col">Titulo</th>
+                                        <th scope="col" class="ocultar"> Descripción</th>
+                                        <th scope="col" class="ocultar"> Fecha de publicación</th>
+                                        <th scope="col" class="ocultar"> Fecha limite </th>
+                                        <th scope="col" class="ocultar"> Fecha de modificación</th>
+                                        <th scope="col" class="text-center">Editar/Eliminar</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody id="avisosPublicados">
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <!-- PANEL DE AVISOS ------------------------------------------------------------>
+            </div>
+        </div>
+    </main>
+    <script src="assets/js/validate_inputs/expresiones.js"></script>
+    <script src="assets/js/avisosPanel_consultas.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+</body>
+
+</html>

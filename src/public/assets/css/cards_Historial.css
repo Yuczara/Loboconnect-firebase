@@ -1,0 +1,66 @@
+.card-bg {
+    background: rgba(115, 107, 107, 0.2);
+    border-radius: 1rem;
+    margin: 1rem;
+    border: none;
+}
+
+.card-bg:hover {
+    box-shadow: 0px 7px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+/*Pantallas chicas*/
+
+div[class="col-md-3"] {
+    text-align: center;
+}
+
+div[class="col-md-3"] img {
+    margin-top: 10px;
+    max-width: 200px;
+    max-height: 200px;
+}
+
+.col-md-1 a i {
+    margin: 10px;
+    font-size: 30px;
+}
+
+
+/*Pantallas grandes*/
+
+div[class="col-md-3 displayCenter"] {
+    text-align: center;
+    line-height: 300px;
+}
+
+div[class="col-md-3 displayCenter"] img {
+    max-width: 200px;
+    max-height: 200px;
+    vertical-align: middle;
+}
+
+.col-md-3 img[class="imgCardHistorial displayCenter"] {
+    border-radius: 1rem;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 250px;
+}
+
+.col-md-1 a i[class="fas fa-bell displayCenter"] {
+    margin: 10px;
+    font-size: 30px;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.col-md-1 a i[class="fas fa-pen-square displayCenter"] {
+    margin: 10px;
+    font-size: 30px;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
